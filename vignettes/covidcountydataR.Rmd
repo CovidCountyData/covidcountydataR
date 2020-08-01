@@ -16,31 +16,27 @@ knitr::opts_chunk$set(
 )
 ```
 
-Welcome to the R client library for accessing the COVID Modeling Data
-Collaborative (CMDC) database.
+Welcome to the R client library for accessing the COVID County Data
+database.
 
 Links:
 
-  - [Repository](https://github.com/valorumdata/covidcountydataR)
-  - [Website](https://covid.valorum.ai/)
-  - [Python](https://github.com/valorumdata/cmdc.py) and
-    [Julia](https://github.com/valorumdata/CMDC.jl) clients
-  - [Raw REST API](https://covid.valorum.ai/rest-api)
-  - [GraphQL API](https://covid.valorum.ai/graphql-api)
+  - [Repository](https://github.com/CovidCountyData/covidcountydataR)
+  - [Website](https://covidcountydata.org/)
 
 As of right now, this library is a wrapper around the
-[cmdc.py](https://github.com/valorumdata/cmdc.py) Python client. For
+[covidcountydata.py](https://github.com/CovidCountyData/covidcountydata.py) Python client. For
 more examples and documentation, please see that library. If you are an
 R programmer and are willing to contribute to making a native library,
 please reach out at our
-[repository](https://github.com/valorumdata/covidcountydataR)\!
+[repository](https://github.com/CovidCountyData/covidcountydataR)\!
 
-Also, please see the [project website](https://covid.valorum.ai) for
+Also, please see the [project website](https://covidcountydata.org) for
 more information.
 
-## COVID Modeling Data Collaborative
+## COVID County Data
 
-The COVID Modeling Data Collaborative (CMDC) is a project funded by
+Covid County Data (CCD) is a project funded by
 [Schmidt Futures](https://schmidtfutures.com/) and seeks to simplify the
 data ingestion process for researchers and policy makers who are working
 to enact and understand COVID-19 related policies. We accomplish this
@@ -53,16 +49,16 @@ goal in several ways:
   - Work with other related organizations to expand and improve their
     data collection processes
   - Build tools, such as this library (and
-    [Python](https://github.com/valorumdata/cmdc.py) and
-    [Julia](https://github.com/valorumdata/CMDC.jl) equivalents), to
+    [Python](https://github.com/CovidCountyData/covidcountydata.py) and
+    [Julia](https://github.com/CovidCountyData/CovidCountyData.jl) equivalents), to
     simplify the data ingestion process
 
 More information about our project and what data is collected can be
-found on our [website](https://covid.valorum.ai/).
+found on our [website](https://covidcountydata.org/).
 
 We are always looking to hear from both those who would like to help us
-build CMDC and those who would like use CMDC. [Please reach out to
-us](https://covid.valorum.ai/contact)\!
+build CCD and those who would like use CCD. [Please reach out to
+us](https://covidcountydata.org/contact)\!
 
 ## Installation
 
@@ -174,7 +170,7 @@ To clear the current request, use `reset(cl)`:
 
 ```{r resetClient}
 reset(cl)
-#> CMDC Client
+#> CCD Client
 ```
 
 Each dataset function will build up a request for the client and will
@@ -266,10 +262,10 @@ register(cl, "me@me.com")
 After you `register` for an API key it will be added to the client. All
 future requests with this client will use the API key
 
-We also save the key to a file at `~/.cmdc/apikey`
+We also save the key to a file at `~/.covidcountydata/apikey`
 
 If this file exists, each time you call `client` and do not explicitly
-pass an apikey we will read the key from `~/.cmdc/apikey` and
+pass an apikey we will read the key from `~/.covidcountydata/apikey` and
 automatically apply it for you
 
 Thus, to use the key in future sessions you just need to do `cl <-
