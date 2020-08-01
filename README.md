@@ -1,4 +1,4 @@
-cmdcR
+covidcountydataR
 ================
 
 Welcome to the R client library for accessing the COVID Modeling Data
@@ -6,7 +6,7 @@ Collaborative (CMDC) database.
 
 Links:
 
-  - [Repository](https://github.com/valorumdata/cmdcR)
+  - [Repository](https://github.com/valorumdata/covidcountydataR)
   - [Website](https://covid.valorum.ai/)
   - [Python](https://github.com/valorumdata/cmdc.py) and
     [Julia](https://github.com/valorumdata/CMDC.jl) clients
@@ -18,7 +18,7 @@ As of right now, this library is a wrapper around the
 more examples and documentation, please see that library. If you are an
 R programmer and are willing to contribute to making a native library,
 please reach out at our
-[repository](https://github.com/valorumdata/cmdcR)\!
+[repository](https://github.com/valorumdata/covidcountydataR)\!
 
 Also, please see the [project website](https://covid.valorum.ai) for
 more information.
@@ -54,7 +54,7 @@ us](https://covid.valorum.ai/contact)\!
 Please install this package using `devtools::install_github` as follows
 
 ``` r
-devtools::install_github("valorumdata/cmdcR")
+devtools::install_github("valorumdata/covidcountydataR")
 ```
 
 After installing the package, you need to make sure that the underlying
@@ -63,7 +63,7 @@ python package is installed.
 To do this, use
 
 ``` r
-cmdcR::install_cmdcPY()
+covidcountydataR::install_ccdPY()
 ```
 
 During the installation process, R will check if you have an existing
@@ -81,7 +81,7 @@ Once the package is installed, the first step is to create an API
 client:
 
 ``` r
-library(cmdcR)
+library(covidcountydataR)
 ```
 
 ``` r

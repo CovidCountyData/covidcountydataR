@@ -10,7 +10,7 @@ client(apikey = NULL)
 \item{apikey}{A string containing the APIKEY.}
 }
 \value{
-An S3 object with class cmdcClient that implements routines for accessing CMDC API endpoints
+An S3 object with class ccdClient that implements routines for accessing CMDC API endpoints
 }
 \description{
 Construct a client to talk to the CMDC api

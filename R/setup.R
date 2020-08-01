@@ -18,10 +18,10 @@ register <- function(x, ...)
 info <- function(client, dataset)
   UseMethod("info")
 
-cmdcPY <- NULL
+ccdPY <- NULL
 
 .onLoad <- function (libname, pkgname) {
-  cmdcPY <<- reticulate::import("cmdc", delay_load = TRUE)
+  ccdPY <<- reticulate::import("covidcountydata", delay_load = TRUE)
 
   # get swagger file
   res <-
@@ -43,7 +43,7 @@ cmdcPY <- NULL
   for (endpoint in endpoints) {
     if (endpoint == "swagger.json") {
       next
-    }
+    cm}
 
     # create a generic function `endpoint <- function(arg, ...) UseMethod("endpoint")`
     epSym <- rlang::sym(endpoint)
@@ -55,8 +55,8 @@ cmdcPY <- NULL
     # add the endpoint generics to the namespace
     assignInMyNamespace(endpoint, env[[endpoint]])
 
-    # create a method of the generic function for the cmdcClient class
-    methodStr <- paste0(endpoint, ".cmdcClient")
+    # create a method of the generic function for the ccdClient class
+    methodStr <- paste0(endpoint, ".ccdClient")
     methodSym <- rlang::sym(methodStr)
     methodBody <- rlang::expr(function(obj, ...) {
       obj$pyClient[[!!endpoint]](...)
@@ -66,11 +66,11 @@ cmdcPY <- NULL
     eval(methodCode, envir = env)
 
     method <- env[[methodStr]]
-    registerS3method(endpoint, "cmdcClient", method, envir = env)
+    registerS3method(endpoint, "ccdClient", method, envir = env)
   }
 }
 
 #' @export
-install_cmdcPY <- function() {
-  reticulate::py_install("cmdc", pip = TRUE)
+install_ccdPY <- function() {
+  reticulate::py_install("covidcountydata", pip = TRUE)
 }

@@ -1,10 +1,10 @@
 ---
-title: "cmdcR"
+title: "covidcountydataR"
 output:
   github_document: null
   rmarkdown::html_vignette: null
 vignette: >
-  %\VignetteIndexEntry{cmdcR}
+  %\VignetteIndexEntry{covidcountydataR}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ Collaborative (CMDC) database.
 
 Links:
 
-  - [Repository](https://github.com/valorumdata/cmdcR)
+  - [Repository](https://github.com/valorumdata/covidcountydataR)
   - [Website](https://covid.valorum.ai/)
   - [Python](https://github.com/valorumdata/cmdc.py) and
     [Julia](https://github.com/valorumdata/CMDC.jl) clients
@@ -33,7 +33,7 @@ As of right now, this library is a wrapper around the
 more examples and documentation, please see that library. If you are an
 R programmer and are willing to contribute to making a native library,
 please reach out at our
-[repository](https://github.com/valorumdata/cmdcR)\!
+[repository](https://github.com/valorumdata/covidcountydataR)\!
 
 Also, please see the [project website](https://covid.valorum.ai) for
 more information.
@@ -69,7 +69,7 @@ us](https://covid.valorum.ai/contact)\!
 Please install this package using `devtools::install_github` as follows
 
 ```{r install, eval=FALSE}
-devtools::install_github("valorumdata/cmdcR")
+devtools::install_github("CovidCountyData/covidcountydataR")
 ```
 
 After installing the package, you need to make sure that the underlying
@@ -78,7 +78,7 @@ python package is installed.
 To do this, use
 
 ```{r installPy, eval=FALSE}
-cmdcR::install_cmdcPY()
+covidcountydataR::install_ccdPY()
 ```
 
 During the installation process, R will check if you have an existing
@@ -96,7 +96,7 @@ Once the package is installed, the first step is to create an API
 client:
 
 ```{r setup}
-library(cmdcR)
+library(covidcountydataR)
 ```
 
 ```{r createClient}
@@ -289,7 +289,7 @@ Please check back often and see what has been updated
 
 ### Examples
 
-```{r singleDatasetAll}
+```{r singleDatasetAll, cache=TRUE}
 # Single dataset all
 cl %>% mobility_devices() %>% fetch()
 ```
@@ -316,17 +316,17 @@ cl %>% mobility_devices(state=c("CA", "TX")) %>% fetch()
 cl %>% demographics(variable = c("Total population", "Fraction of population over 65", "Median age")) %>% fetch()
 ```
 
-```{r multpleDatasets}
+```{r multpleDatasets, cache=TRUE}
 # Multiple datasets all data
-cl %>% demographics() %>% covid_us() %>% fetch()
+cl %>% demographics() %>% covid_us(dt=">2020-07-20") %>% fetch()
 ```
 
-```{r multipleOnlyStates}
+```{r multipleOnlyStates, cache=TRUE}
 # Multiple datasets states only
-cl %>% demographics() %>% covid_us(location="<100") %>% fetch()
+cl %>% demographics() %>% covid_us(location="<100", dt=">2020-07-20") %>% fetch()
 ```
 
-```{r multipleOnlyCounties}
+```{r multipleOnlyCounties, cache=TRUE}
 # Multiple datasets counties only
-cl %>% demographics() %>% covid_us(location=">1000") %>% fetch()
+cl %>% demographics() %>% covid_us(location=">1000", dt=">2020-07-20") %>% fetch()
 ```

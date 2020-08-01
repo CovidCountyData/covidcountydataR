@@ -1,4 +1,4 @@
-Package: cmdcR
+Package: covidcountydataR
 Type: Package
 Title: Client library to access COVID-19 Modeling Data Collaborative (CMDC) API
 Version: 0.1.0
@@ -13,7 +13,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://covid.valorum.ai
-BugReports: https://github.com/valorumdata/cmdcR/issues
+BugReports: https://github.com/valorumdata/covidcountydataR/issues
 RoxygenNote: 7.1.0
 Imports: 
     reticulate,

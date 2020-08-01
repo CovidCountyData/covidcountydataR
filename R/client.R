@@ -1,7 +1,7 @@
 #' Construct a client to talk to the CMDC api
 #'
 #' @param apikey A string containing the APIKEY.
-#' @return An S3 object with class cmdcClient that implements routines for accessing CMDC API endpoints
+#' @return An S3 object with class ccdClient that implements routines for accessing CMDC API endpoints
 #'
 #' @export
 #'
@@ -9,23 +9,23 @@
 #' @importFrom magrittr "%>%"
 #' @export %>%
 client <- function(apikey = NULL) {
-  pyClient = cmdcPY$Client(apikey)
+  pyClient = ccdPY$Client(apikey)
   fields <- list(pyClient = pyClient)
-  structure(fields, class = c("cmdcClient"))
+  structure(fields, class = c("ccdClient"))
 }
 
 
 #' Print information about the client and current request
 #'
 #' @export
-print.cmdcClient <- function (x)
+print.ccdClient <- function (x)
   print(x$pyClient)
 
 
 #' List all datasets accessible by the client
 #'
 #' @export
-datasets.cmdcClient <-
+datasets.ccdClient <-
   function (x)
     reticulate::py_list_attributes(x$pyClient)
 
@@ -34,7 +34,7 @@ datasets.cmdcClient <-
 #' @return A data.frame (tibble) containing requested data
 #'
 #' @export
-fetch.cmdcClient <- function (x) {
+fetch.ccdClient <- function (x) {
   tibble::as_tibble(x$pyClient$fetch())
 }
 
@@ -44,7 +44,7 @@ fetch.cmdcClient <- function (x) {
 #' @return A string containing the API Key
 #'
 #' @export
-register.cmdcClient <- function (x, ...) {
+register.ccdClient <- function (x, ...) {
   x$pyClient$register(...)
 }
 
@@ -54,7 +54,7 @@ register.cmdcClient <- function (x, ...) {
 #' @return The client
 #'
 #' @export
-reset.cmdcClient <- function (x) {
+reset.ccdClient <- function (x) {
   x$pyClient$reset()
   x
 }
@@ -64,7 +64,7 @@ reset.cmdcClient <- function (x) {
 #' endpoint (`info(client, endpoint)`, for example `info(client, "demographics")`)
 #'
 #' @export
-info.cmdcClient <- function(cl, x = NULL) {
+info.ccdClient <- function(cl, x = NULL) {
   print_datasets <- function() {
     print("Datasets are:")
     cat(c("", datasets(cl)), sep = "\n- ")
