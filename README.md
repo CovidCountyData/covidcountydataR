@@ -1,6 +1,6 @@
 # covidcountydataR
 
-Welcome to the Python client library documentation for the [Covid County Data](https://covidcountydata.org) (CCD) database.
+Welcome to the R client library documentation for the [Covid County Data](https://covidcountydata.org) (CCD) database.
 
 
 ## Installation
@@ -52,7 +52,7 @@ register(cl)
 
 You will be prompted for your email address. After entering a valid email address we will issue
 an API key, store it on your machine, and automatically apply it to all future requests made from
-Python to our servers.
+this library to our servers.
 
 If at any time you would like to remove your API key, please delete the file `~/.covidcountydata/apikey`.
 
@@ -62,7 +62,7 @@ If at any time you would like to remove your API key, please delete the file `~/
 
 ### Datasets
 
-You can see a list of the available datasets in our API from the Python library by doing:
+You can see a list of the available datasets in our API from the R library by doing:
 
 ```R
 library(covidcountydataR)
@@ -133,7 +133,7 @@ covid_us(cl, state="CA")
 If you wanted to add another dataset, such as `demographics`, you would simply call that method as
 well.
 
-```python
+```R
 demographics(cl)
 ```
 
@@ -206,7 +206,7 @@ The example below loads just demographic information for Travis County in Texas.
 
 Notice that we can select a particular geography by specifying the fips code. We can do similar things for any of the keys listed previously.
 
-```python
+```R
 cl <- client()
 dat <- cl %>% demographics(location="48453") %>% fetch()
 ```
