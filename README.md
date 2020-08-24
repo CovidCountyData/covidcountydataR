@@ -43,7 +43,7 @@ We are grateful to everyone who is willing to register for and use their API key
 with our data.
 
 To register for an API key, you can register [on our website](https://covidcountydata.org#register)
-or from the R using the `register` method.
+or from the R client library using the `register` method.
 
 ```R
 cl <- client()
@@ -72,7 +72,7 @@ datasets(cl)
 ```
 
 For more information on each of these datasets, we recommend that you visit our
-[data documentation page](https://covidcountydata.org/data-api#rest).
+[data documentation page](https://covidcountydata.org/data/documentation).
 
 
 ### Data keys
