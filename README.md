@@ -56,6 +56,8 @@ this library to our servers.
 
 If at any time you would like to remove your API key, please delete the file `~/.covidcountydata/apikey`.
 
+**Update March 4, 2021**: API keys are now required for data access
+
 
 ## Data
 
